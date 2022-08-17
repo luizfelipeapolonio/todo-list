@@ -1,0 +1,336 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-image: radial-gradient(rgb(166, 71, 238), rgb(55, 2, 95));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+h1 {
+    color: rgb(55, 2, 121);
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.720);
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    min-height: 150px;
+    max-height: 500px;
+    padding: 10px 15px 25px;
+    border: none;
+    border-radius: 8px;
+}
+
+/* ===== Adicionar Tarefas ===== */
+.adcTarefas {
+    display: flex;
+    justify-content: space-between;
+    /*background: blue;*/
+    padding: 10px 0px 15px 8px;
+    margin-bottom: 8px;
+}
+
+#txtTarefa {
+    background-color: transparent;
+    font-size: 18px;
+    width: 90%;
+    height: 30px;
+    padding: 3px;
+    border: none;
+    border-bottom: 2px solid grey;
+    outline: none;
+}
+
+#txtTarefa:focus{
+    border-color: rgb(104, 0, 184);
+}
+
+#btnAdicionar {
+    font-size: 30px;
+    background-color: rgb(104, 0, 184);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#btnAdicionar:disabled {
+    background-color: rgba(104, 0, 184, 0.6);
+    color: rgb(229, 229, 229);
+    cursor: auto;
+}
+
+/* ===== Filtros ===== */
+.filtros {
+    display: flex;
+    font-size: 18px;
+    align-items: center;
+    justify-content: space-between;
+    /*background-color: red;*/
+    padding: 12px 0px 5px 0px;
+    border-bottom: 1px solid rgb(125, 0, 220);
+}
+
+.div-spans {
+    /*background-color: yellow;*/
+    padding: 5px 0 5px;
+    margin-left: 8px;
+}
+
+.div-spans span {
+    cursor: pointer;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+#span-todos {
+    color:rgb(125, 0, 220);
+}
+
+#span-pendente, #span-concluido {
+    margin-left: 8px;
+}
+
+#btnlimpar {
+    background-color: rgb(104, 0, 184);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 6px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#btnlimpar:disabled {
+    background-color: rgba(104, 0, 184, 0.6);
+    color: rgb(229, 229, 229);
+    cursor: auto;
+}
+
+/* ===== Tarefas ===== */
+.tarefas {
+    /*background-color: green;*/
+    display: flex;
+    min-height: 100px;
+    padding: 0px 10px 10px 10px;
+    margin-top: 12px;
+    overflow: auto;
+}
+
+.lista {
+    /*background-color: orange;*/
+    width: 100%;
+}
+
+.lista #frase {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.item {
+    /*background-color: orchid;*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0px 4px 0px;
+    border-bottom: 1px solid grey;
+}
+
+.div-itens {
+    /*background-color: aqua;*/
+    display: flex;
+    align-items: center;
+    width: 85%;
+    font-size: 18px;
+    word-break: break-all; /* Fazer o texto quebrar dentro da div */
+}
+
+/* ===== Botões dos itens ===== */
+.botoes {
+    /*background-color: orangered;*/
+    padding: 3px 0px 0px 0px;
+}
+
+.botoes button {
+    background-color: transparent;
+    border: none;
+    font-size: 21px;
+    cursor: pointer;
+    transition: transform .2s;
+}
+
+.botoes button:hover {
+    transform: scale(1.5);
+}
+
+.btnEditar {
+    color: rgb(27, 111, 196);
+}
+
+.btnEditar:disabled {
+    color: rgba(27, 111, 196, 0.5);
+    cursor: auto;
+}
+
+.btnExcluir {
+    color: rgb(179, 1, 1);
+}
+
+.btnExcluir:disabled {
+    color: rgba(179, 1, 1, 0.5);
+    cursor: auto;
+}
+
+.abas {
+    cursor: pointer;
+}
+
+/* ===== CheckBox ===== */
+.tarefas input {
+    accent-color: rgb(104, 0, 184);
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.tarefas input:disabled {
+    cursor: auto;
+}
+
+/* ===== Barra de rolagem ===== */
+.tarefas::-webkit-scrollbar {
+    width: 8px;
+}
+
+.tarefas::-webkit-scrollbar-track {
+    background-color: rgba(128, 128, 128, 0.5);
+    border-radius: 5px;
+    margin-top: 6px;
+}
+
+.tarefas::-webkit-scrollbar-thumb {
+    background-color: rgba(104, 0, 184, 0.6);
+    border-radius: 5px;
+}
+
+.tarefas::-webkit-scrollbar-thumb:hover {
+    background-color:rgb(104, 0, 184);
+}
+
+/* ===== Janela Modal ===== */
+.modal-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 2000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    animation: modal .3s;
+}
+
+.modal {
+    background-color: rgba(255, 255, 255, 0.720);
+    width: 30%;
+    min-width: 300px;
+    height: 120px;
+    padding: 40px 20px 15px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: none;
+    border-radius: 8px;
+    position: relative;
+    animation: descermodal .3s;
+}
+
+.modal #btnFechar {
+    background-color: transparent;
+    color: rgb(90, 90, 90);
+    font-size: 25px;
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+
+.modal #btnFechar:hover {
+    background-color: rgb(104, 0, 184);
+    color: white;
+}
+
+.modal #inputModal {
+    background-color: transparent;
+    font-size: 18px;
+    width: 100%;
+    height: 30px;
+    padding: 0px 5px 0px;
+    border: none;
+    border-bottom: 2px solid grey;
+    outline: none;
+}
+
+.modal #inputModal:focus {
+    border-color: rgb(104, 0, 184);
+}
+
+.modal #btnSalvar {
+    background-color: rgb(104, 0, 184);
+    color: white;
+    margin-top: 15px;
+    width: 90px;
+    padding: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal #btnSalvar:hover {
+    background-color: rgba(104, 0, 184, 0.720);
+}
+
+.modal #btnSalvar:disabled {
+    background-color: rgba(104, 0, 184, 0.5);
+    color: rgb(229, 229, 229);
+    cursor: auto;
+}
+
+/* ===== Animação Janela Modal ===== */
+@keyframes modal {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes descermodal {
+    from {
+        transform: translateY(-20px);
+    }
+    to {
+        transform: translateY(0px);
+    }
+}

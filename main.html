@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tarefas</h1>
+
+        <div class="adcTarefas">
+            <input type="text" id="txtTarefa" placeholder="Digite sua tarefa" autofocus oninput="habilitaBtnAdc()">
+            <button id="btnAdicionar" disabled><i class="bx bx-plus"></i></button>
+        </div>
+
+        <div class="filtros">
+            <div class="div-spans">
+                <span id="span-todos">Todos</span>
+                <span id="span-pendente">Pendentes</span>
+                <span id="span-concluido">Concluídos</span>
+            </div>
+            <input type="button" id="btnlimpar" value="Limpar">
+        </div>
+
+        <div class="tarefas">
+            <ul class="lista" id="ulLista">
+                <li id="frase"> Você ainda não tem nenhuma tarefa</li>
+            <!--<li class="item" type="none">
+                    <div class="div-itens">
+                        <input type="checkbox" id="1">
+                        <label class="abas" for="1">Terminar projetos Javascript</label>
+                    </div>
+                    <div class="botoes">
+                        <button id="btnEditar"><i class="bx bxs-edit"></i></button>
+                        <button id="btnExcluir"><i class="bx bxs-trash"></i></button>
+                    </div> 
+                </li>-->
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- JANELA MODAL -->
+    <div class="modal-container">
+        <div class="modal">
+            <button id="btnFechar"><i class="bx bx-x"></i></button>
+            <input type="text" class="inputModal" id="inputModal">
+            <input type="button" class="btnSalvar" id="btnSalvar" value="Salvar">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
